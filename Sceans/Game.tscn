@@ -1,0 +1,166 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
+[ext_resource path="res://Sprite/star_gold.png" type="Texture" id=2]
+[ext_resource path="res://Sprite/shield_silver.png" type="Texture" id=3]
+[ext_resource path="res://Sceans/ParallaxBackgroundTest.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sceans/player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sceans/Shield.tscn" type="PackedScene" id=6]
+
+[node name="game" type="Node2D" index="0"]
+
+position = Vector2( 0, 1 )
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="0"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="MenuButton" type="Button" parent="CanvasLayer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 10.0
+margin_top = 11.0
+margin_right = 91.0
+margin_bottom = 39.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Menu"
+flat = false
+align = 1
+
+[node name="star_gold" type="Sprite" parent="CanvasLayer" index="1"]
+
+self_modulate = Color( 1, 1, 1, 0.588235 )
+position = Vector2( 122.831, 23.569 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="shield_silver" type="Sprite" parent="CanvasLayer" index="2"]
+
+self_modulate = Color( 1, 1, 1, 0.588235 )
+position = Vector2( 178.831, 26.569 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Label" type="Label" parent="CanvasLayer" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 103.0
+margin_top = 16.0
+margin_right = 141.0
+margin_bottom = 36.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "1000"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label2" type="Label" parent="CanvasLayer" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 164.0
+margin_top = 17.0
+margin_right = 192.0
+margin_bottom = 31.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "1"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="ParallaxBackground" parent="." index="1" instance=ExtResource( 4 )]
+
+[node name="player" parent="." index="2" instance=ExtResource( 5 )]
+
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Timer2" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 0.2
+one_shot = false
+autostart = true
+
+[node name="Timer" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 0.06
+one_shot = false
+autostart = true
+
+[node name="Shield" parent="." index="5" instance=ExtResource( 6 )]
+
+position = Vector2( 539.09, 517.217 )
+
+[node name="PowerTimer" type="Timer" parent="." index="6"]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = false
+autostart = true
+
+[node name="EnemyTimer2" type="Timer" parent="." index="7"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+[node name="EnemyTImet3" type="Timer" parent="." index="8"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+[connection signal="pressed" from="CanvasLayer/MenuButton" to="." method="_on_MenuButton_pressed"]
+
+[connection signal="timeout" from="Timer2" to="player" method="_on_Timer2_timeout"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[connection signal="timeout" from="Timer" to="player" method="_on_Timer_timeout"]
+
+[connection signal="timeout" from="PowerTimer" to="." method="_on_PowerTimer_timeout"]
+
+[connection signal="timeout" from="EnemyTimer2" to="." method="_on_EnemyTimer2_timeout"]
+
+[connection signal="timeout" from="EnemyTImet3" to="." method="_on_EnemyTImet3_timeout"]
+
+
