@@ -4,11 +4,11 @@ var Speed = 2
 var Size = 762
 
 func _physics_process(delta):
-	$ParallaxLayer.position.y += Speed
-	$ParallaxLayer2.position.y += Speed
+	$TextureRect.rect_position.y += Speed
+	$TextureRect2.rect_position.y += Speed
 	
-	if $ParallaxLayer.position.y > Size:
-		$ParallaxLayer.position.y = -Size
+	if $TextureRect.rect_position.y > Size:
+		$TextureRect.rect_position.y = -Size
 	
-	if $ParallaxLayer2.position.y > Size:
-		$ParallaxLayer2.position.y = -Size
+	if $TextureRect2.rect_position.y > Size:
+		$TextureRect2.rect_position.y = -Size
