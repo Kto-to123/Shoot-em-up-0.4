@@ -12,5 +12,3 @@ func _process(delta):
 
 	if !get_viewport_rect().has_point(position):
 		queue_free()
-		
-#lassdadsasasdsdsadsadsadsdsadsda
