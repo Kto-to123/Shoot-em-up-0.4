@@ -22,4 +22,6 @@ func _on_bullet_area_entered(area):
 	if area.is_in_group("Player"):
 		Global.Live -= 1
 		queue_free()
-#s;fdddddddddddddddddddddddddddddddddddddd
+	
+	if area.is_in_group("Offer"):
+		queue_free()

@@ -32,6 +32,9 @@ func _on_enemy_area_entered(area):
 	if area.is_in_group("Shield"):
 		Global.Shield = Global.Shield - 1
 		queue_free()
+	
+	if area.is_in_group("Offer"):
+		queue_free()
 
 func _on_Timer_timeout():
 	push()

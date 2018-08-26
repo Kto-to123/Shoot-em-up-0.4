@@ -51,6 +51,16 @@ func _process(delta):
 	
 	$CanvasLayer/Label.text = String(Global.money)
 	$CanvasLayer/Label2.text = String(Global.Shield)
+	
+	if $Offer.scale.x <= 20:
+		$Offer.scale.x += delta * 10
+		$Offer.scale.y += delta * 10
+		$Offer.modulate.a -= delta / 1.4
+	
+	if $Offer.scale.x > 20:
+		$Offer.position = Vector2(-500, -500)
+		$Offer.scale.x = 1
+		$Offer.scale.y = 1
 
 
 func _on_Timer_timeout():
