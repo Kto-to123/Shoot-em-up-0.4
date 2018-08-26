@@ -21,7 +21,7 @@ custom_solver_bias = 0.0
 radius = 11.75
 height = 5.87524
 
-[node name="player" type="Area2D" groups=[
+[node name="player" type="Area2D" index="0" groups=[
 "Player",
 ]]
 

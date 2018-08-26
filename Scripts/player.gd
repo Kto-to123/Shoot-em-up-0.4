@@ -68,6 +68,10 @@ func _process(delta):
 		position.x -= MOVE_SPEED * delta
 	if Input.is_action_pressed("_move_rght") and position.x < get_viewport_rect().size.x:
 		position.x += MOVE_SPEED * delta
+	if Input.is_action_pressed("_move_up") and position.y > 0:
+		position.y -= MOVE_SPEED * delta
+	if Input.is_action_pressed("_move_down") and position.y < get_viewport_rect().size.y:
+		position.y += MOVE_SPEED * delta
 	
 	if Input.is_action_pressed('_Esc'):
 		get_tree().change_scene("res://Sceans/Menu.tscn")
