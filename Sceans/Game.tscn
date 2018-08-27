@@ -115,7 +115,8 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="player" parent="." index="3" instance=ExtResource( 6 )]
 
-_sections_unfolded = [ "Visibility" ]
+position = Vector2( -539, -518 )
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Timer2" type="Timer" parent="." index="4"]
 
@@ -156,6 +157,13 @@ wait_time = 1.0
 one_shot = false
 autostart = true
 
+[node name="PlayerSpawnTimer" type="Timer" parent="." index="10"]
+
+process_mode = 1
+wait_time = 0.2
+one_shot = true
+autostart = true
+
 [connection signal="pressed" from="CanvasLayer/MenuButton" to="." method="_on_MenuButton_pressed"]
 
 [connection signal="timeout" from="Timer2" to="player" method="_on_Timer2_timeout"]
@@ -169,5 +177,7 @@ autostart = true
 [connection signal="timeout" from="EnemyTimer2" to="." method="_on_EnemyTimer2_timeout"]
 
 [connection signal="timeout" from="EnemyTImet3" to="." method="_on_EnemyTImet3_timeout"]
+
+[connection signal="timeout" from="PlayerSpawnTimer" to="." method="_on_PlayerSpawnTimer_timeout"]
 
 

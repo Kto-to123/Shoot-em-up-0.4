@@ -21,7 +21,6 @@ func _on_StartButton_pressed():
 	Global.speed = speed
 	Global.rapidity = rapidity
 	get_tree().change_scene("res://Sceans/Game.tscn")
-	pass
 
 
 func _on_BuyButton_pressed():

@@ -57,6 +57,7 @@ func _process(delta):
 		$Offer.scale.y += delta * 10
 		$Offer.modulate.a -= delta / 1.4
 	
+	
 	if $Offer.scale.x > 20:
 		$Offer.position = Vector2(-500, -500)
 		$Offer.scale.x = 1
@@ -85,3 +86,7 @@ func _on_EnemyTimer2_timeout():
 
 func _on_EnemyTImet3_timeout():
 	spawn_enemy3()
+
+
+func _on_PlayerSpawnTimer_timeout():
+	$player.position = Vector2(539, 518)
