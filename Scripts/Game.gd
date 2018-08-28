@@ -34,7 +34,6 @@ func spawn_PowerShield():
 
 func _ready():
 	randomize()
-	$Timer2.wait_time = Global.rapidity
 
 
 func _process(delta):
@@ -51,6 +50,7 @@ func _process(delta):
 	
 	$CanvasLayer/Label.text = String(Global.money)
 	$CanvasLayer/Label2.text = String(Global.Shield)
+	$CanvasLayer/Label3.text = String(Global.BossTime)
 	
 	if $Offer.scale.x <= 20:
 		$Offer.scale.x += delta * 10
@@ -62,10 +62,12 @@ func _process(delta):
 		$Offer.position = Vector2(-500, -500)
 		$Offer.scale.x = 1
 		$Offer.scale.y = 1
-
-
-func _on_Timer_timeout():
-	spawn_enemy()
+	
+	if Global.BossTime > 9:
+		$Portal.visible = true
+	
+	if Global.BossTime > 9 && $player.position.x > get_viewport_rect().size.x + 5:
+		get_tree().change_scene("res://Sceans/BossScene.tscn")
 
 
 func _on_MenuButton_pressed():
@@ -75,9 +77,6 @@ func _on_MenuButton_pressed():
 func _on_PowerTimer_timeout():
 	spawn_PowerShield()
 
-
-func _on_player_area_entered(area):
-	pass # replace with function body
 
 
 func _on_EnemyTimer2_timeout():
@@ -90,3 +89,6 @@ func _on_EnemyTImet3_timeout():
 
 func _on_PlayerSpawnTimer_timeout():
 	$player.position = Vector2(539, 518)
+
+func _on_EnemyTimer_timeout():
+	spawn_enemy()

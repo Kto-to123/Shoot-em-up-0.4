@@ -10,6 +10,9 @@ func _process(delta):
 	if position.y > get_viewport_rect().size.y + 20:
 		queue_free()
 	position.y += MOVE_SPEED * delta
+	
+	if Global.BossLVL:
+		queue_free()
 
 
 func _ready():
@@ -36,6 +39,7 @@ func push():
 func _on_enemy_area_entered(area):
 	if area.is_in_group("Bullet"):
 		Global.money = Global.money + 5
+		Global.BossTime += 1
 		area.queue_free()
 		queue_free()
 	

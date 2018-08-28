@@ -43,6 +43,8 @@ func push():
 
 
 func _ready():
+	$Timer.wait_time = Global.rapidity
+	
 	if Global.Skin == 1:
 		$AnimatedSprite.frame = 0
 	
@@ -66,7 +68,9 @@ func _process(delta):
 	
 	if Input.is_action_pressed("_move_left") and position.x > 0:
 		position.x -= MOVE_SPEED * delta
-	if Input.is_action_pressed("_move_rght") and position.x < get_viewport_rect().size.x:
+	if Input.is_action_pressed("_move_rght") and position.x < get_viewport_rect().size.x and Global.BossTime <= 9:
+		position.x += MOVE_SPEED * delta
+	if Input.is_action_pressed("_move_rght") and position.x < get_viewport_rect().size.x + 10 and Global.BossTime > 9:
 		position.x += MOVE_SPEED * delta
 	if Input.is_action_pressed("_move_up") and position.y > 0:
 		position.y -= MOVE_SPEED * delta
@@ -79,12 +83,9 @@ func _process(delta):
 
 
 func _on_Timer_timeout():
-	pass
-
-
-func _on_Timer2_timeout():
 	if Input.is_action_pressed('_LMB'):
 		push()
+
 
 #func _on_player_area_entered(area):
 #	if area.is_in_group("EnBullet"):

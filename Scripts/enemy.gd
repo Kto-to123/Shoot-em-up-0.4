@@ -9,6 +9,9 @@ func _process(delta):
 	if position.y > get_viewport_rect().size.y + 20:
 		queue_free()
 	position.y += MOVE_SPEED * delta
+	
+	if Global.BossLVL:
+		queue_free()
 
 
 func _on_enemy_area_entered(area):

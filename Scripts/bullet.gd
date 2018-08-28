@@ -8,7 +8,9 @@ func _process(delta):
 	
 	position.x -= cos((rotation_degrees + 90) * PI / 180) * (MOVE_SPEED * delta)
 	position.y -= sin((rotation_degrees + 90) * PI / 180) * (MOVE_SPEED * delta)
-
-
+	
+	if Global.BossLVL:
+		queue_free()
+	
 	if !get_viewport_rect().has_point(position):
 		queue_free()

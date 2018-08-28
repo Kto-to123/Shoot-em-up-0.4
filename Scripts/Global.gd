@@ -9,3 +9,5 @@ var Live = 1
 var LiveD = 1
 var Gun = 1
 var Skin = 1
+var BossTime = 0
+var BossLVL = false
