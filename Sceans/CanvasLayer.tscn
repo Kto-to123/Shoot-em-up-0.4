@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Sprite/star_gold.png" type="Texture" id=1]
-[ext_resource path="res://Sprite/shield_silver.png" type="Texture" id=2]
+[ext_resource path="res://Sprite/enemyBlack3.png" type="Texture" id=1]
+[ext_resource path="res://Sprite/star_gold.png" type="Texture" id=2]
+[ext_resource path="res://Sprite/shield_silver.png" type="Texture" id=3]
 
 [node name="CanvasLayer" type="CanvasLayer" index="0"]
 
@@ -11,21 +12,29 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="star_gold" type="Sprite" parent="." index="0"]
+[node name="enemyBlack3" type="Sprite" parent="." index="0"]
+
+modulate = Color( 1, 1, 1, 0.602196 )
+position = Vector2( 977.187, 27.8382 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="star_gold" type="Sprite" parent="." index="1"]
 
 self_modulate = Color( 1, 1, 1, 0.588235 )
 position = Vector2( 122.831, 23.569 )
-texture = ExtResource( 1 )
-_sections_unfolded = [ "Visibility" ]
-
-[node name="shield_silver" type="Sprite" parent="." index="1"]
-
-self_modulate = Color( 1, 1, 1, 0.588235 )
-position = Vector2( 178.831, 26.569 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Label" type="Label" parent="." index="2"]
+[node name="shield_silver" type="Sprite" parent="." index="2"]
+
+self_modulate = Color( 1, 1, 1, 0.588235 )
+position = Vector2( 178.831, 26.569 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Label" type="Label" parent="." index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -48,7 +57,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label2" type="Label" parent="." index="3"]
+[node name="Label2" type="Label" parent="." index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -70,7 +79,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label3" type="Label" parent="." index="4"]
+[node name="Label3" type="Label" parent="." index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
