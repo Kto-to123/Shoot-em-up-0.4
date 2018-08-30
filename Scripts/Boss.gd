@@ -47,4 +47,5 @@ func _on_Boss_area_entered(area):
 
 
 func _on_Timer3_timeout():
+	Global.LVL += 1
 	get_tree().change_scene("res://Sceans/Game.tscn")

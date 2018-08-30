@@ -12,6 +12,10 @@ func _ready():
 	$SpeedLabel/Label.text = String(speed)
 	$RapidityLabel/Label.text = String(rapidity)
 	$ShieldLabel/Label.text = String(Global.ShieldD)
+	if Global.LVL > 0:
+		$LVL1Button2.disabled = false
+	if Global.LVL > 1:
+		$LVL1Button3.disabled = false
 
 
 func _on_StartButton_pressed():
@@ -126,4 +130,12 @@ func _on_SkinButton4_pressed():
 
 
 func _on_LVL1Button_pressed():
+	get_tree().change_scene("res://Sceans/LVL1.tscn")
+
+
+func _on_LVL1Button2_pressed():
+	get_tree().change_scene("res://Sceans/LVL1.tscn")
+
+
+func _on_LVL1Button3_pressed():
 	get_tree().change_scene("res://Sceans/LVL1.tscn")

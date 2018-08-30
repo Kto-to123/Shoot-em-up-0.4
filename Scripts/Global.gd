@@ -11,3 +11,4 @@ var Gun = 1
 var Skin = 1
 var BossTime = 0
 var BossLVL = false
+var LVL = 0
