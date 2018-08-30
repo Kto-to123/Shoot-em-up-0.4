@@ -123,3 +123,7 @@ func _on_SkinButton4_pressed():
 		Global.Skin = 4
 		money -= 300
 		$Label1.text = String(money) 
+
+
+func _on_LVL1Button_pressed():
+	get_tree().change_scene("res://Sceans/LVL1.tscn")
